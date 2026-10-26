@@ -4,7 +4,7 @@ A C++17/SFML prototype for the Gehenna game client. It provides a window, stack-
 
 ## Current functionality
 
-- An 800 × 600 window with Start Game, Settings, and Quit menu actions.
+- An 800 Ã— 600 window with Start Game, Settings, and Quit menu actions.
 - A game-state placeholder that opens a pause menu with Escape; the pause menu supports resume, settings, and return to the main menu.
 - Font and texture caches backed by SFML resources.
 - A background connection attempt with exponential retry delays, key-based authentication, and console message exchange after authentication.
@@ -30,7 +30,7 @@ Keep the repository root as the working directory so the bundled font can be fou
 
 Use a new build directory: the committed `cmake-build-debug/` contains machine-specific generated files. CMake copies the OpenAL DLL on Windows, but does not stage the font or authentication file.
 
-Starting the application also starts its network connection worker. Before running, configure `IPADDRESS` and `PORT` in `src/backend/ConnectionHandler.cpp` for a server you control. The server implementation is not included here. The client reads one authentication-key line from `data/key.txt`, sends it as an SFML packet string, and waits for an `authenticated` response before starting console send/receive loops. Use a separately provisioned development key. This prototype has no TLS transport or complete connection shutdown/recovery handling.
+Starting the application also starts its network connection worker. Before running, configure `IPADDRESS` and `PORT` in `src/backend/ConnectionHandler.cpp` for a server you control. The server implementation is not included here. The client reads one authentication-key line from `data/key.txt`, sends it as an SFML packet string, and waits for an `authenticated` response before starting console send/receive loops. Copy `data/key.txt.example` to the ignored `data/key.txt` and replace its placeholder with a newly provisioned development key. No usable key is bundled. Do not reuse credentials from older copies of this prototype. This prototype has no TLS transport or complete connection shutdown/recovery handling.
 
 ## Source layout
 
